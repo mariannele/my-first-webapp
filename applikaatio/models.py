@@ -6,6 +6,7 @@ class Businesstrip(models.Model):
     travel_date = models.DateField(default=timezone.now)
     departure = models.CharField(max_length=200)
     destination = models.CharField(max_length=200)
+    round_trip = models.BooleanField(default=False)
 
     CUSTOMER_MEETING = 'CM'
     SUPPLIER_MEETING = 'SM'
@@ -27,7 +28,7 @@ class Businesstrip(models.Model):
     company = models.ManyToManyField("Businesspartner", blank = True)
     total_km = models.IntegerField()
     km_allowance_eur = models.FloatField(blank=True, null=True)
-    notes = models.TextField()
+    notes = models.TextField(blank=True, null=True)
     compensation_applied = models.BooleanField(default=False)
 
     def __str__(self):
