@@ -9,9 +9,10 @@
 <body>
     <form method="post">
         {% csrf_token %}
-        <h2>Remove {{businesstrip.travel_date}} ? </h2>
+        <h2>Are you sure you want to delete businesstrip on {{businesstrip.travel_date}} ? </h2>
         <button type="submit">Confirm</button>
     </form>
+    <dl><a href="{% url 'list_businesstrips' %}">Cancel</a></dl>
     
 </body>
 </html>

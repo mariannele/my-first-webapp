@@ -11,12 +11,12 @@
     <ul>
         {% for businesstrip in businesstrips %}
             <a href="{% url 'update_businesstrip' businesstrip.id %}">
-                <li>{{businesstrip.travel_date}}</li></a>
+                <li>{{businesstrip.travel_date}} {{businesstrip.departure}} - {{businesstrip.destination}}</li></a>
         {% endfor %}
     </ul>
 
-    <a href="{% url 'create_businesstrip' %}">Add new</a>
-    <a href="{% url 'logout' %}">logout</a>
+    <a href="{% url 'create_businesstrip' %}">Add new businesstrip</a>
+    <dl><a href="{% url 'logout' %}">logout</a></dl>
     
 </body>
 </html>

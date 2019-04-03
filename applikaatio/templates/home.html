@@ -4,11 +4,12 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Welcome {{ user.username }}!
-  <a href="{% url 'logout' %}">logout</a>
+  Welcome to businesstrip -app <strong>{{ user.username }}!</strong>
+  <dl><a href="{% url 'list_businesstrips' %}">Browse businesstrips</a></dl>
+  <dl><a href="{% url 'logout' %}">Logout</a></dl>
 {% else %}
-  <d1> <strong>You are not logged in</strong></d1>
-  <a href="{% url 'login' %}">login here</a>
-  <dl> <strong>or</strong></dl> <a href="{% url 'signup' %}">create user account</a>
+  <strong>You are not logged in?</strong>
+  <dl><a href="{% url 'login' %}">LOGIN HERE</a></dl>
+  <dl> <strong>or</strong></dl> <a href="{% url 'signup' %}">Create user account</a>
 {% endif %}
 {% endblock %}
