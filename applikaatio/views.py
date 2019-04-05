@@ -42,7 +42,7 @@ def delete_businesstrip(request, id):
 def weather(request):
     cities = Traveldestination.objects.all()
 
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=9cbb6fbdc8d9bb39470b77dd1efed111'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=9cbb6fbdc8d9bb39470b77dd1efed111'
     
     if request.method == 'POST':
         form = CityForm(request.POST)

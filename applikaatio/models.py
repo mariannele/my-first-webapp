@@ -41,7 +41,7 @@ class Businesstrip(models.Model):
     km_allowance_eur = models.FloatField(blank=True, null=True)
 
     def __str__(self):
-        return f'{self.travel_date} / {self.destination} ({self.reason})'
+        return f'{self.travel_date} / ({self.reason})'
 
 
 class Businesspartner(models.Model):

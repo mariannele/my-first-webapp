@@ -11,7 +11,7 @@
     <ul>
         {% for businesstrip in businesstrips %}
             <a href="{% url 'update_businesstrip' businesstrip.id %}">
-                <li>{{businesstrip.travel_date}} {{businesstrip.departure}} - {{businesstrip.destination}}</li></a>
+                <li>{{businesstrip.travel_date}} {{businesstrip.departure}} - Destination </li></a>
         {% endfor %}
     </ul>
 

@@ -5,8 +5,8 @@ from .models import Businesstrip, Traveldestination
 class BusinesstripForm(forms.ModelForm):
     class Meta:
         model = Businesstrip
-        fields = ['travel_date', 'departure', 'destination', #'roundtrip',
-        'reason', 'company', 'total_km', 'km_allowance_eur', #'notes', #'compensation_applied'
+        fields = ['travel_date', 'departure', 'destination', 'company',
+        'reason', 'agenda', 'return_trip', 'total_km', 'km_allowance_eur'
         ]
 
 class CityForm(ModelForm):
@@ -15,4 +15,4 @@ class CityForm(ModelForm):
         fields = ['city_name']
         widgets = {
             'city_name': TextInput(attrs={'class' : 'input', 'placeholder' : 'City Name'}),
-        } #updates the input class to have the correct Bulma class and placeholder
+        }
