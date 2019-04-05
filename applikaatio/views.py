@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Businesstrip
-from .forms import BusinesstripForm
+import requests
+from .models import Businesstrip, Traveldestination
+from .forms import BusinesstripForm, CityForm
 
 
 def HomePageView(request):
@@ -37,3 +38,31 @@ def delete_businesstrip(request, id):
         return redirect('list_businesstrips')
 
     return render(request, 'businesstrip_delete.html', {'businesstrip' : businesstrip})
+
+def weather(request):
+    cities = Traveldestination.objects.all()
+
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=9cbb6fbdc8d9bb39470b77dd1efed111'
+    
+    if request.method == 'POST':
+        form = CityForm(request.POST)
+        form.save()
+    
+    form = CityForm()
+    
+    weather_data = []
+
+    for city in cities:
+        #request the API data and convert the JSON to Python data types:
+        city_weather = requests.get(url.format(city)).json()
+        weather = {
+            'city' : city,
+            'temperature' : city_weather['main']['temp'],
+            'description' : city_weather['weather'][0]['description'],
+            'icon' : city_weather['weather'][0]['icon']
+        }
+        
+        #add the data for the current city into our list:
+        weather_data.append(weather)
+
+    return render(request, 'weatherview.html', {'weather_data' : weather_data, 'form' : form})

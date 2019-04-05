@@ -5,7 +5,10 @@
 {% block content %}
 {% if user.is_authenticated %}
   Welcome to businesstrip -app <strong>{{ user.username }}!</strong>
-  <dl><a href="{% url 'list_businesstrips' %}">Browse businesstrips</a></dl>
+  <dl><a href="{% url 'list_businesstrips' %}">Browse businesstrip log</a></dl>
+  Plan businesstrip? Check
+  <strong><a href="{% url 'weatherview' %}">local weather</a></strong>
+  in your destination!
   <dl><a href="{% url 'logout' %}">Logout</a></dl>
 {% else %}
   <strong>You are not logged in?</strong>
