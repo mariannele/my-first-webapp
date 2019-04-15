@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <form method="post">
         {% csrf_token %}
         <h2>Are you sure you want to delete businesstrip on {{businesstrip.travel_date}} ? </h2>
         <button type="submit">Confirm</button>
     </form>
     <dl><a href="{% url 'list_businesstrips' %}">Cancel</a></dl>
-    
-</body>
-</html>
+{% endblock %}

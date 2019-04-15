@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <h1>New/Update businesstrip</h1>
+{% block content %}
+    <h1>Add/Update businesstrip</h1>
 
     <form method="POST">
         {% csrf_token %}
@@ -19,6 +12,4 @@
     {% if businesstrip %}
         <a href="{% url 'delete_businesstrip' businesstrip.id %}">Delete</a>
     {% endif %}
-    
-</body>
-</html>
+{% endblock %}

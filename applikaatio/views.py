@@ -5,11 +5,11 @@ from .forms import BusinesstripForm, CityForm
 
 
 def HomePageView(request):
-    return render(request, 'home.html', {})
+    return render(request, 'home.html', {'title' : 'Home'})
 
 def list_businesstrips(request):
      businesstrips = Businesstrip.objects.all()
-     return render(request, 'businesstrips.html', {'businesstrips': businesstrips})
+     return render(request, 'businesstrips.html', {'businesstrips': businesstrips, 'title' : 'View'})
 
 def create_businesstrip(request):
     form = BusinesstripForm(request.POST or None)
@@ -18,7 +18,7 @@ def create_businesstrip(request):
         form.save()
         return redirect('list_businesstrips')
     
-    return render(request, 'businesstrip-form.html', {'form' : form})
+    return render(request, 'businesstrip-form.html', {'form' : form, 'title' : 'Create'})
 
 def update_businesstrip(request, id):
     businesstrip = Businesstrip.objects.get(id=id)
@@ -28,7 +28,7 @@ def update_businesstrip(request, id):
         form.save()
         return redirect('list_businesstrips')
 
-    return render(request, 'businesstrip-form.html', {'form': form, 'businesstrip': businesstrip})
+    return render(request, 'businesstrip-form.html', {'form': form, 'businesstrip': businesstrip, 'title' : 'Update'})
 
 def delete_businesstrip(request, id):
     businesstrip = Businesstrip.objects.get(id=id)
@@ -37,7 +37,7 @@ def delete_businesstrip(request, id):
         businesstrip.delete()
         return redirect('list_businesstrips')
 
-    return render(request, 'businesstrip_delete.html', {'businesstrip' : businesstrip})
+    return render(request, 'businesstrip_delete.html', {'businesstrip' : businesstrip, 'title' : 'Delete'})
 
 def weather(request):
     cities = Traveldestination.objects.all()
