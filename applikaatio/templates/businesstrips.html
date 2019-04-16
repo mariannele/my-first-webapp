@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <ul>
-        {% for businesstrip in businesstrips %}
-            <a href="{% url 'update_businesstrip' businesstrip.id %}">
-                <p>{{businesstrip.travel_date}} {{businesstrip.destination}} </p></a>
-        {% endfor %}
-    </ul>
+    {% for businesstrip in businesstrips %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ post.author }}</a>
+                    <small class="text-muted">{{ businesstrip.travel_date }}</small>
+                    {% for obj in businesstrip.travel_destination.all %}
+                        <a class="mr-2" href="#">{{obj.city_name}}</a>
+                    {% endfor %}
+                </div>                
+                <h2><a class="article-title" href="#">{{ businesstrip.title }}</a></h2>
+                <p class="article-content">{{ businesstrip.content }}</p>
+            </div>
+        </article>
+    {% endfor %}
 
     <a href="{% url 'create_businesstrip' %}">Add new businesstrip</a>
     <dl><a href="{% url 'logout' %}">logout</a></dl>

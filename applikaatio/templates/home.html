@@ -2,7 +2,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-      <h1>Welcome to Travel diary <strong>{{ user.username }}!</strong></h1>
+      <h1>Welcome to Travel Diary <strong style="color:blue;">{{ user.username }}!</strong></h1>
       <dl>To browse, add or update businesstrips, click 
       <strong><a href="{% url 'list_businesstrips' %}">here</a></strong></dl>
       Plan businesstrip? Check
@@ -14,4 +14,4 @@
       <dl><a href="{% url 'login' %}">LOGIN HERE</a></dl>
       <dl> <strong>or</strong></dl> <a href="{% url 'signup' %}">Create user account</a>
     {% endif %}
-{% endblock %}
+{% endblock content %}
