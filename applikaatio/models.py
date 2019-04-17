@@ -10,35 +10,37 @@ class Businesstrip(models.Model):
     travel_date = models.DateField(default=timezone.now)
     title = models.CharField(max_length=200, default=None)
     travel_destination = models.ManyToManyField("Traveldestination", default=None)
-    company = models.ManyToManyField("Businesspartner", default=None)
+    #company = models.ManyToManyField("Businesspartner", default=None)
 
-    CUSTOMER_MEETING = 'CUSTOMER_MEETING'
-    SUPPLIER_MEETING = 'SUPPLIER_MEETING'
-    OTHER_MEETING = 'OTHER_MEETING'
-    INTERNAL_MEETING = 'INTERNAL_MEETING'
-    OFFICE_DAY = 'OFFICE_DAY'
-    TRADE_FAIR = 'TRADE_FAIR'    
-    REASON_CHOICES = (
-        (CUSTOMER_MEETING, 'Customer meeting'),
-        (SUPPLIER_MEETING, 'Supplier meeting'),
-        (OTHER_MEETING, 'Other meeting'),
-        (INTERNAL_MEETING, 'Internal meeting'),
-        (OFFICE_DAY, 'Office day'),
-        (TRADE_FAIR, 'Trade fair'),
+    CITY_HOLIDAY = 'CITY_HOLIDAY'
+    BEACH_HOLIDAY = 'BEACH_HOLIDAY'
+    ACTIVITY_VACATION = 'ACTIVITY_VACATION'
+    FAMILY_HOLIDAY = 'FAMILY_HOLIDAY'
+    BUSINESS_TRIP = 'BUSINESS_TRIP'     
+    TRIPTYPE_CHOICES = (
+        (CITY_HOLIDAY, 'City holiday'),
+        (BEACH_HOLIDAY, 'Beach holiday'),
+        (ACTIVITY_VACATION, 'Activity vacation'),
+        (FAMILY_HOLIDAY, 'Family holiday'),
+        (BUSINESS_TRIP, 'Business trip'),        
     )
     
-    reason = models.CharField(max_length=20, choices=REASON_CHOICES,
-    default=CUSTOMER_MEETING)
+    trip_type = models.CharField(max_length=20, choices=TRIPTYPE_CHOICES,
+    default=CITY_HOLIDAY)
+
+    ACCOMMODATION_CHOICES = (
+    ('HOTEL', 'Hotel'),
+    ('HOSTEL', 'Hostel'),
+    ('RENTAL_APPARTMENT', 'Rental appartment'),
+    ('RENTAL_HOUSE', 'Rental house'),
+    ('BED_N_BREAKFAST', 'Bed and breakfast'),
+    ('HOLIDAY_VILLA', 'Holiday villa'),
+)
+
+    accommodation = models.CharField(max_length=20, choices=ACCOMMODATION_CHOICES, 
+    default="HOTEL")
 
     content = models.TextField(blank = True)
-      
-    TRIPTYPE_CHOICES = (
-        ('ONE_WAY', 'One way'),
-        ('RETURN', 'Return trip')
-    )
-
-    return_trip = models.CharField(max_length=20, choices=TRIPTYPE_CHOICES, 
-    default="RETURN")
 
     def __str__(self):
         return f'{self.travel_date} / ({self.title})'

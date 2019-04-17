@@ -2,16 +2,19 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-      <h1>Welcome to Travel Diary <strong style="color:blue;">{{ user.username }}!</strong></h1>
-      <dl>To browse, add or update businesstrips, click 
-      <strong><a href="{% url 'list_businesstrips' %}">here</a></strong></dl>
-      Plan businesstrip? Check
+      <h2>Welcome to Travel Diary <strong style="color:#a502a5;">{{ user.username }}!</strong></h2>
+      <dl>Read or post <strong><a href="{% url 'list_businesstrips' %}">Travel Diaries!</a></strong></dl>
+      Dream about going back? Check
       <strong><a href="{% url 'weatherview' %}">local weather</a></strong>
-      in your destinations!
-      <dl><strong><a href="{% url 'logout' %}">Logout</a></strong></dl>
+      in your favourite destinations!
+      <!--<dl><strong><a href="{% url 'logout' %}">Logout</a></strong></dl>-->
     {% else %}
-      <strong>You are not logged in?</strong>
-      <dl><a href="{% url 'login' %}">LOGIN HERE</a></dl>
-      <dl> <strong>or</strong></dl> <a href="{% url 'signup' %}">Create user account</a>
+      <h2>You are not logged in?</h2>
+      <div class="border-top pt-3">
+        <small class="text-muted">
+          <a href="{% url 'login' %}">Login Here</a>
+          <dl> <strong>or</strong></dl><a href="{% url 'signup' %}">Sign Up!</a>
+        </small>
+      </div>
     {% endif %}
 {% endblock content %}

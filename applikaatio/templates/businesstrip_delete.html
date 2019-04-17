@@ -3,7 +3,7 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        <h2>Are you sure you want to delete businesstrip on {{businesstrip.travel_date}} ? </h2>
+        <h2>Are you sure you want to delete this post from {{ businesstrip.date_posted|date:"F d, Y" }} ? </h2>
         <button type="submit">Confirm</button>
     </form>
     <dl><a href="{% url 'list_businesstrips' %}">Cancel</a></dl>

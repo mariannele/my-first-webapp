@@ -5,9 +5,8 @@ from .models import Businesstrip, Traveldestination
 class BusinesstripForm(forms.ModelForm):
     class Meta:
         model = Businesstrip
-        fields = ['date_posted', 'travel_date', 'title', 'travel_destination', 'company',
-        'reason', 'content', 'return_trip'
-        ]
+        fields = ['date_posted', 'travel_date', 'title', 'travel_destination', 'trip_type',
+        'content', 'accommodation']
 
 """class CityForm(ModelForm):
     class Meta:

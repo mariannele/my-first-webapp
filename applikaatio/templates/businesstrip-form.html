@@ -1,15 +1,24 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>Add/Update businesstrip</h1>
+    <div class="content-section">
+        <h1>Post/Update</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Save</button>
-    </form>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group"></fieldset>
+                <legend class="border-bottom mb-4"> Travel Diary</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Save</button>
+                {% if businesstrip %}
+                <a href="{% url 'delete_businesstrip' businesstrip.id %}">Delete</a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
 
-    {% if businesstrip %}
-        <a href="{% url 'delete_businesstrip' businesstrip.id %}">Delete</a>
-    {% endif %}
-{% endblock %}
+
+{% endblock content %}
