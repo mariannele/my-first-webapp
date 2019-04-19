@@ -45,7 +45,7 @@ class Businesstrip(models.Model):
         return self.city_name
 
     class Meta:
-        ordering = ('travel_date',)
+        ordering = ('-travel_date',)
 
 
 """class Businesspartner(models.Model):

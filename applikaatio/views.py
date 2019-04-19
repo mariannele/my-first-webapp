@@ -84,4 +84,4 @@ def weather(request):
         #add the data for the current city into our list:
         weather_data.append(weather)
 
-    return render(request, 'weatherview.html', {'weather_data' : weather_data})
+    return render(request, 'weatherview.html', {'weather_data' : weather_data, 'cities' : cities})

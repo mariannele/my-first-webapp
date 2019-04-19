@@ -4,15 +4,15 @@
     {% if user.is_authenticated %}
       <h2>Welcome to Travel Diary <strong style="color:#a502a5;">{{ user.username }}!</strong></h2>
       <dl>Read or post <strong><a href="{% url 'list_businesstrips' %}">Travel Diaries!</a></strong></dl>
-      Dream about going back? Check
+      Dream about travelling again? Check
       <strong><a href="{% url 'weatherview' %}">local weather</a></strong>
-      in your favourite destinations!
+      in all the travel destinations!
       <!--<dl><strong><a href="{% url 'logout' %}">Logout</a></strong></dl>-->
     {% else %}
       <h2>You are not logged in?</h2>
       <div class="border-top pt-3">
         <small class="text-muted">
-          <a href="{% url 'login' %}">Login Here</a>
+          <a href="{% url 'login' %}">Login</a>
           <dl> <strong>or</strong></dl><a href="{% url 'signup' %}">Sign Up!</a>
         </small>
       </div>

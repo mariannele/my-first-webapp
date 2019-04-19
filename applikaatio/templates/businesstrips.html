@@ -12,7 +12,7 @@
                 <h2><a class="article-title" href="{% url 'update_businesstrip' businesstrip.id %}">
                     {{ businesstrip.title }}</a></h2>
                 <small class="text-muted">Travel date: {{ businesstrip.travel_date|date:"F d, Y"}}</small>
-                <small class="text-muted">Destination: {{businesstrip.city_name}}</small>      
+                <small class="text-muted">Destination: {{businesstrip.city_name}}</small>   
                 <p class="article-content">{{ businesstrip.content }}</p>
             </div>
             {% for weather in weather_data %}
