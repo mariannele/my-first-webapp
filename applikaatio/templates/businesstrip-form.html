@@ -13,12 +13,11 @@
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Save</button>
+                <a href="{% url 'list_businesstrips' %}">Cancel</a>
                 {% if businesstrip %}
                 <a href="{% url 'delete_businesstrip' businesstrip.id %}">Delete</a>
                 {% endif %}
             </div>
         </form>
     </div>
-
-
 {% endblock content %}
